@@ -1,0 +1,20 @@
+.Login button {
+    font-family: var(--font-family-main);
+    font-size: 1.2rem;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0px 2px 2px black;
+    padding-inline: .5rem;
+}
+
+.Login button:hover {
+    color: var(--color-300);
+    box-shadow: 0px 2px 2px var(--color-800);
+}
+
+.Login button:active {
+    color: var(--color-800);
+    box-shadow: 0px 0px 0px black;
+    margin-top: 2px;
+    margin-bottom: -2px;
+}

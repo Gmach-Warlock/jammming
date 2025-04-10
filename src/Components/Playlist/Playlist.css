@@ -1,0 +1,5 @@
+.Playlist {
+    width: 40%;
+    background-color: var(--color-600);
+    margin-block: 2rem;
+}

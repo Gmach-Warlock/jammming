@@ -1,0 +1,6 @@
+.SearchResults {
+    width: 50%;
+    background-color: var(--color-600);
+    margin-block: 2rem;
+    justify-items: center;
+}

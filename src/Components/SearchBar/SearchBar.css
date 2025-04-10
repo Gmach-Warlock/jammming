@@ -1,0 +1,8 @@
+.SearchBar {
+    background-color: var(--color-600);
+    color: white;
+    height: 20rem;
+    align-content: center;
+    font-size: 2rem;
+}
+
