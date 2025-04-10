@@ -1,0 +1,20 @@
+:root {
+    --color-400: hsl(281, 100%, 44%);
+    --color-300: hsl(75, 60%, 39%);
+    --color-200: hsl(75, 100%, 44%);
+    --color-600: hsl(281, 50%, 36%);
+    --color-700: hsl(75, 34%, 28%);
+    --color-800: hsl(0, 0%, 43%);
+
+    --font-family-main: "DM Serif Text", serif;
+    --font-family-second: "Chewy", system-ui;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+li {
+    list-style-type: none;
+}
