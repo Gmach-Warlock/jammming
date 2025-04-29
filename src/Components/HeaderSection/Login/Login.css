@@ -2,5 +2,18 @@
     font-family: var(--font-family-third);
     background-color: var(--color-800);
     color: var(--color-200);
-    font-size: 1.25rem;
+    font-size: var(--font-size-button);
+    border-radius: 3px;
+    box-shadow: 0px 1px black;
+}
+
+.login-button:hover {
+    color: var(--color-400);
+}
+
+.login-button:active {
+    color: var(--color-300);
+    margin-top: 1px;
+    margin-bottom: -1px;
+    box-shadow: 0px 0px black;
 }

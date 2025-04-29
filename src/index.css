@@ -1,3 +1,6 @@
 body {
-    font-size: 1.5rem;
+    background-image: radial-gradient(hsla(0, 0%, 100%, 0.5), hsla(240, 100%, 50%, 0.5)), url(../../assets/pictures/FloatingNotes.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 60%;
 }

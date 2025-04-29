@@ -10,9 +10,9 @@
     --font-family-second: "Unlock", serif;
     --font-family-third: "Merriweather", serif;
 
-    --font-size-body: 1.75rem;
-    --font-size-header: 6rem;
-    --font-size-button: 1.25rem;
+    --font-size-body: 1rem;
+    --font-size-header: 3rem;
+    --font-size-button: 1rem;
 }
 
 * {
@@ -25,6 +25,7 @@ body {
     background-color: var(--color-800);
     color: var(--color-200);
     font-size: var(--font-size-body);
+    text-shadow: 0px 1.5px black;
 }
 
 li {
