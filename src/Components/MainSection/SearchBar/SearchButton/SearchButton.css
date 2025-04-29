@@ -2,4 +2,6 @@
     background-color: white;
     border-radius: 5px;
     font-size: var(--font-size-button);
+    font-family: var(--font-family-third);
+    color: var(--color-800);
 }

@@ -1,3 +1,7 @@
 .searchbar-section {
     padding-bottom: 4rem;
 }
+
+.searchbar-section input {
+    margin-block: 1rem;
+}

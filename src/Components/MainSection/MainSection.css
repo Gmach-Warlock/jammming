@@ -1,9 +1,10 @@
 
 
 main .background {
-   background-image: url(../../assets/pictures/Listeners.jpg);
+   background-image: radial-gradient(hsla(0, 0%, 100%, 0.5), hsla(240, 100%, 50%, 0.5)), url(../../assets/pictures/FloatingNotes.jpg);
    background-size: cover;
    background-repeat: no-repeat;
+   background-position: 50% 60%;
 }
 
 main .flex-container {
