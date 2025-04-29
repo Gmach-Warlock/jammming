@@ -1,0 +1,16 @@
+
+
+main .background {
+   background-image: url(../../assets/pictures/Listeners.jpg);
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+main .flex-container {
+   display: flex;
+   justify-content: space-evenly;
+}
+
+main .overlay {
+   background-color: hsla(265, 20%, 17%, 0.7);
+}

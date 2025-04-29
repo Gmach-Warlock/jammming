@@ -1,0 +1,5 @@
+.search-button {
+    background-color: white;
+    border-radius: 5px;
+    font-size: var(--font-size-button);
+}

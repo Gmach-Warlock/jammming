@@ -1,0 +1,6 @@
+.login-button {
+    font-family: var(--font-family-third);
+    background-color: var(--color-800);
+    color: var(--color-200);
+    font-size: 1.25rem;
+}
