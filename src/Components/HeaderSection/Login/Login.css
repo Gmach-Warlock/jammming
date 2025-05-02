@@ -5,6 +5,7 @@
     font-size: var(--font-size-button);
     border-radius: 3px;
     box-shadow: 0px 1px black;
+    margin-top: 1rem;
 }
 
 .login-button:hover {
