@@ -1,11 +1,14 @@
 import Track from "../Track/Track";
-
+import { tracksArray } from "../tracksArray";
 
 function Tracklist() {
+
     return (
         <div className="tracklist">
             <ul>
-                <li><Track Title="One" Artist="Metallica" Album="And Justice for All"/></li>
+                {tracksArray.map((track) => 
+                    <li><Track Title={track.Title} Artist={track.Artist} Album={track.Album}/></li>
+                )}
             </ul>
         </div>
     );
