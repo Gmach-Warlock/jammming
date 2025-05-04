@@ -7,7 +7,7 @@ function Tracklist() {
         <div className="tracklist">
             <ul>
                 {tracksArray.map((track) => 
-                    <li><Track Title={track.Title} Artist={track.Artist} Album={track.Album}/></li>
+                    <li key={track.key}><Track Title={track.Title} Artist={track.Artist} Album={track.Album}/></li>
                 )}
             </ul>
         </div>

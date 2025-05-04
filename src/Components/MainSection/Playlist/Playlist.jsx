@@ -3,43 +3,36 @@ import { useState } from 'react';
 
 function Playlist() {
 
-    let playlistName = 'Playlist Name';
-    let changingName = true;
+    const [changingName, setChangingName] = useState(false);
 
-    const [name, setName] = useState();
-
-    const toggleChangingName = () => {
-        if (changingName) {
-            changingName = false;
+    const [playlistNameInput, setPlaylistNameInput] = useState('');
+    const [playlistName, setPlaylistName] = useState('Playlist')
+    const handleClick = (e) => {
+        if (playlistNameInput) {
+            setPlaylistName(playlistNameInput);
+            setChangingName(false);
         } else {
-            changingName = true;
+            setPlaylistName('Playlist');
+            setChangingName(false);
         }
-    }
-    
-    const handleSubmit = () => {
-        changeName();
-    }
 
-    const changeName = () => {
-        setName(({target}) => {
-            playlistName = target.value;
-            changingName = false;
-        })
     }
 
     if(changingName) {
         return (
             <div className="playlist">
-                <input type="text" id="playlistNameInput" name="playlistNameInput" />
-                <button type='submit' onSubmit={handleSubmit}>Change Name</button>
+                <input type="text" id="playlistNameInput" name="playlistNameInput" onChange={(e) => setPlaylistNameInput(e.target.value)}/>
+                <button type='submit' onClick={handleClick}>Change Name</button>
+            </div>
+        );
+    } else {
+        return (
+            <div className="playlist">
+                <h2 onClick={() => setChangingName(true)}>{playlistName}</h2>
             </div>
         );
     }
-        return (
-            <div className="playlist">
-                <h2 onClick={toggleChangingName}>{playlistName}</h2>
-            </div>
-        );
+ 
 };
 
 export default Playlist;
