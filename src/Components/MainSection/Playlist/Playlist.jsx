@@ -1,38 +1,16 @@
-import './Playlist.css'
-import { useState } from 'react';
+import PlaylistName from "./PlaylistName/PlaylistName";
+import PlaylistSongsContainer from "./PlaylistSongsContainer/PlaylistSongsContainer";
+import SaveToSpotifyButton from "./SaveToSpotifyButton/SaveToSpotifyButton";
 
-function Playlist() {
 
-    const [changingName, setChangingName] = useState(false);
+export default function Playlist() {
+    return (
 
-    const [playlistNameInput, setPlaylistNameInput] = useState('');
-    const [playlistName, setPlaylistName] = useState('Playlist')
-    const handleClick = (e) => {
-        if (playlistNameInput) {
-            setPlaylistName(playlistNameInput);
-            setChangingName(false);
-        } else {
-            setPlaylistName('Playlist');
-            setChangingName(false);
-        }
+        <>
+            <PlaylistName />
+            <PlaylistSongsContainer />
+            <SaveToSpotifyButton />
+        </>    
 
-    }
-
-    if(changingName) {
-        return (
-            <div className="playlist">
-                <input type="text" id="playlistNameInput" name="playlistNameInput" onChange={(e) => setPlaylistNameInput(e.target.value)}/>
-                <button type='submit' onClick={handleClick}>Change Name</button>
-            </div>
-        );
-    } else {
-        return (
-            <div className="playlist">
-                <h2 onClick={() => setChangingName(true)}>{playlistName}</h2>
-            </div>
-        );
-    }
- 
+    );
 };
-
-export default Playlist;
