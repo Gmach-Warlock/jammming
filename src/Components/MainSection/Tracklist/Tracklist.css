@@ -1,0 +1,6 @@
+.tracklist li {
+    background-color: var(--color-800);
+    padding: 2rem 1rem 1rem;
+    margin-block: 1rem;
+    font-size: 1rem;
+}
