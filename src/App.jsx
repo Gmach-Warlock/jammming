@@ -1,15 +1,23 @@
-import { useState } from 'react'
+
 import './App.css'
-import HeaderSection from './Components/HeaderSection/HeaderSection'
-import MainSection from './Components/MainSection/MainSection'
+import Login from './components/Login/Login'
+import Playlist from './components/Playlist/Playlist'
+import SearchBar from './components/SearchBar/SearchBar'
+import SearchResults from './components/SearchResults/SearchResults'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      <HeaderSection />
-      <MainSection />
+      <Login />
+      <h1>Jammming</h1>
+      <SearchBar />
+      <div className="flex-container results-playlist-container">
+        <div><SearchResults /></div>
+        <div><Playlist /></div>
+      </div>
     </>
   )
 }

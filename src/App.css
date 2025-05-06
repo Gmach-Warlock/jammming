@@ -37,7 +37,24 @@ li {
 }
 
 
+/* utility classes */
 
+.flex-container {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+ 
 
 
 
