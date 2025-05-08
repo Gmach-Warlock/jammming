@@ -1,17 +1,22 @@
-import Tracklist from "../Tracklist/Tracklist";
+import { tracksArray } from "../../tracksArray";
 import Track from "../Track/Track";
+import { useState } from "react";
+import SearchBar from "../SearchBar/SearchBar";
 
 
 export default function SearchResults() {
+
+    const searchArray = tracksArray.filter((track) => track.title.includes(''));
+
     return (
         <>
             <h2>Results</h2>
             <ul>
-                <li><Track 
-                    title="one"
-                    artist="u2"
-                    album="achtung baby"
-                /></li>
+                {searchArray.map((track) => <li key={`${track.title}${track.artist}`}><Track 
+                    title={track.title} 
+                    artist={track.artist} 
+                    album={track.album} 
+                />{<i className="fa-solid fa-plus"></i>}</li>)}
             </ul>
         </>
     );
