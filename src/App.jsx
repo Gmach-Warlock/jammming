@@ -1,9 +1,11 @@
 
 import './App.css'
 import Login from './components/Login/Login'
-import Playlist from './components/Playlist/Playlist'
-import SearchBar from './components/SearchBar/SearchBar'
-import SearchResults from './components/SearchResults/SearchResults'
+
+import PlaylistsContainer from './Components/PlaylistsContainer/PlaylistsContainer'
+import SearchBar from './Components/SearchBar/SearchBar'
+import SearchResults from './Components/SearchResults/SearchResults'
+
 
 
 function App() {
@@ -13,11 +15,11 @@ function App() {
     <>
       <Login />
       <h1>Jammming</h1>
-      <SearchBar />
-      <div className="flex-container results-playlist-container">
-        <div><SearchResults /></div>
-        <div><Playlist /></div>
+      <div className="grid-container">
+        <SearchBar />
+        <PlaylistsContainer />  
       </div>
+
     </>
   )
 }

@@ -1,0 +1,7 @@
+.search-bar {
+    grid-column: 1 / span 2;
+}
+
+.search-results {
+    grid-column: 1 / span 1;
+}

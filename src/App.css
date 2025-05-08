@@ -47,6 +47,10 @@ li {
   flex-direction: column;
 }
 
+.grid-container {
+  display: grid;
+}
+
 .display-none {
   display: none;
 }

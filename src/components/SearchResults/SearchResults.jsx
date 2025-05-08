@@ -4,9 +4,9 @@ import { useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 
 
-export default function SearchResults() {
+export default function SearchResults(props) {
 
-    const searchArray = tracksArray.filter((track) => track.title.includes(''));
+    const searchArray = tracksArray.filter((track) => track.title.includes(props.searchTerms));
 
     return (
         <>
