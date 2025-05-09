@@ -1,6 +1,6 @@
 
 export default function Login() {
-
+    /*
     const requestAuthorization = async() => {
             
         const generateRandomString = (length) => {
@@ -78,9 +78,9 @@ export default function Login() {
 
         
     }
-
+    */
     return (
-        <button onClick={requestAuthorization}>Login</button>
+        <button /*onClick={requestAuthorization}*/>Login</button>
     );
 
 }

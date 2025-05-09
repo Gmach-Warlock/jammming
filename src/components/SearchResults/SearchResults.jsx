@@ -6,17 +6,31 @@ import SearchBar from "../SearchBar/SearchBar";
 
 export default function SearchResults(props) {
 
+    const [dropdownIsVisible, setDropdownIsVisible] = useState(true);    
     const searchArray = tracksArray.filter((track) => track.title.includes(props.searchTerms));
+
+    const choosePlaylist = () => {
+
+    }
 
     return (
         <>
             <h2>Results</h2>
             <ul>
-                {searchArray.map((track) => <li key={`${track.title}${track.artist}`}><Track 
+                {searchArray.map((track) => <li key={`${track.title}${track.artist}`}>
+                    <Track 
                     title={track.title} 
                     artist={track.artist} 
                     album={track.album} 
-                />{<i className="fa-solid fa-plus"></i>}</li>)}
+                />
+                {<i className="fa-solid fa-plus"></i>}
+                {dropdownIsVisible && <div>
+                        <label htmlFor="dropdown-name">Which Playlist?</label>
+                        <select name="dropdown-name" id="droppdown-name">
+                            
+                        </select>
+                    </div>}
+                </li>)}
             </ul>
         </>
     );
