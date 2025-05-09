@@ -1,62 +1,16 @@
-import { useState } from "react";
 import Track from "../Track/Track";
 
-export default function Playlist() {
 
-    const [playlistName, setPlaylistName] = useState('Playlist');
-    const [nameInputIsVisible, setNameInputIsVisible] = useState(false);
-    const [newNameData, setNewNameData] = useState('Playlist');
-    const [playlistTracks, setPlaylistTracks] = useState([
-            {
-                title: "Operator",
-                artist: "Jim Croce",
-                album: "Photographs and memories"
-            },
-            {
-                title: "The Sickness",
-                artist: "Disturbed",
-                album: "The Sickness"
-            },
-            {
-                title: "The Final Countdown",
-                artist: "Europe",
-                album: "The Final Countdown"
-            }
-    ]);
-
-    const callNameForm = () => {
-        setNameInputIsVisible(true)
-    }
-
-
-    const renamePlaylistSubmit = () => {
-        if (newNameData) {
-            setPlaylistName(newNameData);
-            console.log(playlistName)
-            setNameInputIsVisible(false)
-        }
-
-    }
-
-
-    const playlist = {
-        name: playlistName,
-        tracks: playlistTracks
-    };
-    
+export default function Playlist(props) {
     return (
         <div className="playlist">
-            {!nameInputIsVisible && <h2 onClick={callNameForm}>{playlist.name}</h2>}
-            {nameInputIsVisible && <div>
-                    <input type="text" id="new-name-input" name="new-name-input" onChange={(e) => setNewNameData(e.target.value)}/>
-                    <button onClick={renamePlaylistSubmit}>Rename</button>
-                </div>}
+            <h2>{props.playlist.name}</h2>
             <ul>
-                {playlist.tracks.map((track) => <li key={`${track.title}${track.artist}`}><Track 
-                    title={track.title} 
-                    artist={track.artist} 
-                    album={track.album} 
-                /></li>)}
+                <li><Track 
+                    title={props.tracks[0].title} 
+                    artist={props.tracks[0].artist} 
+                    album={props.tracks[0].album} 
+                /></li>
             </ul>
         </div>
     );

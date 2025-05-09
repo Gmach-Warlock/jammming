@@ -1,42 +1,38 @@
 import './App.css'
-import Playlist from './Components/Playlist/Playlist'
+import { useState } from 'react'
 import SearchBar from './components/SearchBar/SearchBar'
-import SearchResults from './Components/SearchResults/SearchResults'
-
+import SearchResults from './components/SearchResults/SearchResults'
+import Playlist from './components/Playlist/Playlist'
+import { tracksArray } from './tracksArray'
 
 
 
 function App() {
 
-  const playlist = {
-    name: "Name",
+  const [playlist, setPlaylist] = useState({
+    name: 'Playlist',
     tracks: [
       {
-        title: "Operator",
-        artist: "Jim Croce",
-        album: "Photographs and memories"
-      },
-      {
-        title: "The Sickness",
-        artist: "Disturbed",
-        album: "The Sickness"
-      },
-    {
-        title: "The Final Countdown",
-        artist: "Europe",
-        album: "The Final Countdown"
+        title: "One",
+        artist: "U2",
+        album: "Achtung Baby"
       }
     ]
-  }
+  });
+
+  let searchResults = tracksArray;
 
   return (
     <>
       <h1>Jammming</h1>
-      <SearchBar />
+      <SearchBar 
+      />
       <div className="grid-container"> 
-        <SearchResults />
+        <SearchResults 
+          searchResults={searchResults}
+        />
         <Playlist 
-          name={playlist.name} 
+          playlist={playlist}
           tracks={playlist.tracks}
         />
       </div>
