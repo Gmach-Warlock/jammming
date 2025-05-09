@@ -1,31 +1,16 @@
-
-
+import { tracksArray } from "../../tracksArray";
+import Track from "../Track/Track";
 
 export default function Tracklist() {
-    
-    const tracksArray = [
-        {
-            title: "Bad Day",
-            artist: "Daniel Powter",
-            album: "Daniel Powter"
-        },
-        {
-            title: "Welcome to Paradise",
-            artist: "Green Day",
-            album: "Dookie"
-        },
-        {
-            title: "Night Train",
-            artist: "Guns n Roses",
-            album: "Appetite for Destruction"
-        },
-        {
-            title: "Gypsy Road",
-            artist: "Cinderella",
-            album: "Long Cold Winer"
-        }
-    ];
-
-    return tracksArray;
-
+    return (
+        <div className="tracklist">
+            <ul>
+                {tracksArray.map((track) => <li key={track.title}><Track 
+                    title={track.title} 
+                    artist={track.artist} 
+                    album={track.album} 
+                /></li>)}
+            </ul>
+        </div>
+    );
 }

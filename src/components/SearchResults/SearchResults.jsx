@@ -1,37 +1,13 @@
-import { tracksArray } from "../../tracksArray";
-import Track from "../Track/Track";
-import { useState } from "react";
-import SearchBar from "../SearchBar/SearchBar";
+import Tracklist from "../Tracklist/Tracklist";
 
 
-export default function SearchResults(props) {
 
-    const [dropdownIsVisible, setDropdownIsVisible] = useState(true);    
-    const searchArray = tracksArray.filter((track) => track.title.includes(props.searchTerms));
 
-    const choosePlaylist = () => {
-
-    }
-
+export default function SearchResults() {
     return (
-        <>
+        <div className="searchresults">
             <h2>Results</h2>
-            <ul>
-                {searchArray.map((track) => <li key={`${track.title}${track.artist}`}>
-                    <Track 
-                    title={track.title} 
-                    artist={track.artist} 
-                    album={track.album} 
-                />
-                {<i className="fa-solid fa-plus"></i>}
-                {dropdownIsVisible && <div>
-                        <label htmlFor="dropdown-name">Which Playlist?</label>
-                        <select name="dropdown-name" id="droppdown-name">
-                            
-                        </select>
-                    </div>}
-                </li>)}
-            </ul>
-        </>
+            <Tracklist />
+        </div>
     );
-}
+};
