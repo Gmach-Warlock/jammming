@@ -6,7 +6,7 @@ export default function SearchResults(props) {
     <div className="search-results">
         <h2>Results</h2>
         <ul>
-            {props.searchResults.map((track) => <li key={`${track.title}${track.artist}`}><Track 
+            {props.searchResultsData.map((track) => <li key={`${track.title}${track.artist}`}><Track 
                 title={track.title} 
                 artist={track.artist} 
                 album={track.album} 

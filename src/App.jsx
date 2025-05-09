@@ -20,16 +20,36 @@ function App() {
     ]
   });
 
-  let searchResults = tracksArray;
+  // search functions and states
+
+  const [searchResultsData, setSearchResultsData] = useState(tracksArray);
+  const [searchData, setSearchData] = useState('');
+
+  const handleChangeSearchBar = (e) => {
+    setSearchData(e.target.value)
+
+  }
+
+  const handleClickSearchBar = () => {
+    setSearchResultsData(() => tracksArray.filter((track) => track.title == searchData))
+
+    console.log(searchData)
+    console.log(searchResultsData)
+  }
+
+  // JSX return 
 
   return (
     <>
       <h1>Jammming</h1>
       <SearchBar 
+        handleChangeSearchBar={handleChangeSearchBar} 
+        handleClickSearchBar={handleClickSearchBar}
       />
       <div className="grid-container"> 
         <SearchResults 
-          searchResults={searchResults}
+          searchResultsData={searchResultsData}
+          searchData={searchData}
         />
         <Playlist 
           playlist={playlist}
