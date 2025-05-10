@@ -10,7 +10,19 @@ export default function PlaylistsContainer(props) {
                 tracks={playlist.tracks}
                 tracksArray={playlist.tracks}
             />)}
-            <button className="button-create-playlist">Create New Playlist</button>
+            <button className="button-create-playlist" onClick={props.handleClickButtonCreatePlaylist}>Create New Playlist</button>
+            {props.addingNewPlaylist && <div>
+                <input 
+                    type="text" 
+                    name="new-playlist-name-data" 
+                    id="new-playlist-name-data" 
+                    onChange={props.handleChangeNewPlaylistNameData} placeholder="New Playlist"
+                />
+                <button 
+                    className="button-create-playlist" 
+                    onClick={props.handleClickButtonSubmitNewPlaylist}
+                >Create</button>
+            </div>}
         </div>
     );
 };

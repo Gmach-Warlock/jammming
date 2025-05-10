@@ -4,17 +4,16 @@ import SearchBar from './components/SearchBar/SearchBar'
 import SearchResults from './components/SearchResults/SearchResults'
 import { tracksArray } from './tracksArray'
 import PlaylistsContainer from './Components/PlaylistsContainer/PlaylistsContainer'
+import Login from './components/Login/Login'
 
-
+// Main App
 
 function App() {
+  // Search state variables
 
-  const [playlists, setPlaylists] = useState([]);
-  const [searchResultsData, setSearchResultsData] = useState(tracksArray);
+  const [searchTracksArray, setSearchTracksArray] = useState(tracksArray);
   const [searchData, setSearchData] = useState('');
-  const [newplaylist, setNewPlaylist] = useState({});
-  const [addingNewPlaylist, setAddingNewPlaylist] = useState(false);
-  const [newPlaylistNameData, setNewPlaylistNameData] = useState('New Playlist');
+
 
   // Search functions
 
@@ -24,13 +23,21 @@ function App() {
   }
 
   const handleClickSearchBar = () => {
-    setSearchResultsData(() => tracksArray.filter((track) => track.title == searchData))
+    setSearchTracksArray(tracksArray.filter((track) => track.title.includes(searchData) || track.artist.includes(searchData)))
+    
 
     console.log(searchData)
-    console.log(searchResultsData)
+    console.log(searchTracksArray)
   }
 
-  // Playlist functions 
+  // Playlists state variables
+
+  const [playlists, setPlaylists] = useState([]);
+  const [newplaylist, setNewPlaylist] = useState({});
+  const [addingNewPlaylist, setAddingNewPlaylist] = useState(false);
+  const [newPlaylistNameData, setNewPlaylistNameData] = useState('New Playlist');
+
+  // Playlists functions 
 
   const addNewPlaylistForm = () => {
     setAddingNewPlaylist(true);
@@ -41,10 +48,7 @@ function App() {
   };
 
   const createNewPlaylist = (newPlaylistNameData) => {
-    setPlaylists((prev) => [...prev, {
-      name: newPlaylistNameData,
-      tracksArray: []
-    }])
+
     setAddingNewPlaylist(false);
     console.log(newPlaylistNameData)
   }
@@ -54,6 +58,7 @@ function App() {
 
   return (
     <>
+      <Login />
       <h1>Jammming</h1>
       <SearchBar 
         handleChangeSearchBar={handleChangeSearchBar} 
@@ -61,9 +66,8 @@ function App() {
       />
       <div className="grid-container"> 
         <SearchResults 
-          searchResultsData={searchResultsData}
           searchData={searchData}
-          tracksArray={tracksArray}
+          tracksArray={searchTracksArray}
         />
         <PlaylistsContainer 
           playlists={playlists} 
@@ -71,6 +75,7 @@ function App() {
           addingNewPlaylist={addingNewPlaylist} 
           handleChangeNewPlaylistNameData={handleChangeNewPlaylistNameData} 
           handleClickButtonSubmitNewPlaylist={createNewPlaylist}
+          newPlaylistNameData={newPlaylistNameData}
         />
       </div>
 
