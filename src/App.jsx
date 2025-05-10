@@ -37,7 +37,14 @@ function App() {
 
   // Playlists functions 
 
-  
+  const addTrack = () => {
+    setPlaylistTracksArray((prev) => [...prev, {
+      title: 'Teste',
+      artist: 'Me',
+      album: 'You'
+    }])
+    console.log(playlistTracksArray)
+  }
 
 
   // JSX return 
@@ -53,11 +60,12 @@ function App() {
       <div className="grid-container"> 
         <SearchResults 
           searchData={searchData}
-          tracksArray={searchTracksArray}
+          tracksArray={searchTracksArray} 
+          handleClickAddTrack={addTrack} 
         />
         <Playlist 
           name="Playlist" 
-          playlistTracksArray={playlistTracksArray}
+          tracksArray={playlistTracksArray}
         />
       </div>
 

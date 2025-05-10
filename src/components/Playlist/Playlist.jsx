@@ -1,4 +1,3 @@
-import Track from "../Track/Track";
 import Tracklist from "../Tracklist/Tracklist";
 
 export default function Playlist(props) {
@@ -6,8 +5,9 @@ export default function Playlist(props) {
         <div className="playlist">
             <h2>{props.name}</h2>
             <Tracklist 
-                tracksArray={props.playlistTracksArray}
+                tracksArray={props.tracksArray}
             />
+            <button className="save-to-spotify">Save</button>
         </div>
     );
 };

@@ -63,7 +63,9 @@ li {
   justify-content: space-between;
 }
 
-
+.align-content-center {
+  align-content: center;
+}
 
 
 

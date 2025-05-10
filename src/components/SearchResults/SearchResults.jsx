@@ -8,6 +8,7 @@ export default function SearchResults(props) {
         <h2>Results</h2>
         <Tracklist 
             tracksArray={props.tracksArray}
+            handleClickAddTrack={props.handleClickAddTrack}
         />
     </div>
  );

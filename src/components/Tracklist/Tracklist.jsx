@@ -10,6 +10,7 @@ export default function Tracklist(props) {
                     title={track.title} 
                     artist={track.artist} 
                     album={track.album} 
+                    handleClickAddTrack={props.handleClickAddTrack}
                 /></li>)}
             </ul>
         </div>
