@@ -50,6 +50,7 @@ function App() {
         <SearchResults 
           searchResultsData={searchResultsData}
           searchData={searchData}
+          tracksArray={tracksArray}
         />
         <Playlist 
           playlist={playlist}
