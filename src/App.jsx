@@ -2,7 +2,6 @@ import './App.css'
 import { useState } from 'react'
 import SearchBar from './components/SearchBar/SearchBar'
 import SearchResults from './components/SearchResults/SearchResults'
-import Playlist from './components/Playlist/Playlist'
 import { tracksArray } from './tracksArray'
 import PlaylistsContainer from './Components/PlaylistsContainer/PlaylistsContainer'
 
@@ -11,11 +10,13 @@ import PlaylistsContainer from './Components/PlaylistsContainer/PlaylistsContain
 function App() {
 
   const [playlists, setPlaylists] = useState([]);
-
-  // search functions and states
-
   const [searchResultsData, setSearchResultsData] = useState(tracksArray);
   const [searchData, setSearchData] = useState('');
+  const [newplaylist, setNewPlaylist] = useState({});
+  const [addingNewPlaylist, setAddingNewPlaylist] = useState(false);
+  const [newPlaylistNameData, setNewPlaylistNameData] = useState('New Playlist');
+
+  // Search functions
 
   const handleChangeSearchBar = (e) => {
     setSearchData(e.target.value)
@@ -28,6 +29,26 @@ function App() {
     console.log(searchData)
     console.log(searchResultsData)
   }
+
+  // Playlist functions 
+
+  const addNewPlaylistForm = () => {
+    setAddingNewPlaylist(true);
+  };
+
+  const handleChangeNewPlaylistNameData = (e) => {
+    setNewPlaylistNameData(e.target.value)
+  };
+
+  const createNewPlaylist = (newPlaylistNameData) => {
+    setPlaylists((prev) => [...prev, {
+      name: newPlaylistNameData,
+      tracksArray: []
+    }])
+    setAddingNewPlaylist(false);
+    console.log(newPlaylistNameData)
+  }
+
 
   // JSX return 
 
@@ -45,7 +66,11 @@ function App() {
           tracksArray={tracksArray}
         />
         <PlaylistsContainer 
-          playlists={playlists}
+          playlists={playlists} 
+          handleClickButtonCreatePlaylist={addNewPlaylistForm} 
+          addingNewPlaylist={addingNewPlaylist} 
+          handleChangeNewPlaylistNameData={handleChangeNewPlaylistNameData} 
+          handleClickButtonSubmitNewPlaylist={createNewPlaylist}
         />
       </div>
 
