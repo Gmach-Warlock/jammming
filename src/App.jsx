@@ -4,21 +4,13 @@ import SearchBar from './components/SearchBar/SearchBar'
 import SearchResults from './components/SearchResults/SearchResults'
 import Playlist from './components/Playlist/Playlist'
 import { tracksArray } from './tracksArray'
+import PlaylistsContainer from './Components/PlaylistsContainer/PlaylistsContainer'
 
 
 
 function App() {
 
-  const [playlist, setPlaylist] = useState({
-    name: 'Playlist',
-    tracks: [
-      {
-        title: "One",
-        artist: "U2",
-        album: "Achtung Baby"
-      }
-    ]
-  });
+  const [playlists, setPlaylists] = useState([]);
 
   // search functions and states
 
@@ -52,9 +44,8 @@ function App() {
           searchData={searchData}
           tracksArray={tracksArray}
         />
-        <Playlist 
-          playlist={playlist}
-          tracks={playlist.tracks}
+        <PlaylistsContainer 
+          playlists={playlists}
         />
       </div>
 
