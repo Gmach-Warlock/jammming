@@ -3,8 +3,8 @@ import { useState } from 'react'
 import SearchBar from './components/SearchBar/SearchBar'
 import SearchResults from './components/SearchResults/SearchResults'
 import { tracksArray } from './tracksArray'
-import PlaylistsContainer from './Components/PlaylistsContainer/PlaylistsContainer'
-import Login from './components/Login/Login'
+import Playlist from './Components/Playlist/Playlist'
+
 
 // Main App
 
@@ -32,33 +32,19 @@ function App() {
 
   // Playlists state variables
 
-  const [playlists, setPlaylists] = useState([]);
-  const [newplaylist, setNewPlaylist] = useState({});
-  const [addingNewPlaylist, setAddingNewPlaylist] = useState(false);
-  const [newPlaylistNameData, setNewPlaylistNameData] = useState('New Playlist');
+
+  const [playlistTracksArray, setPlaylistTracksArray] = useState([]);
 
   // Playlists functions 
 
-  const addNewPlaylistForm = () => {
-    setAddingNewPlaylist(true);
-  };
-
-  const handleChangeNewPlaylistNameData = (e) => {
-    setNewPlaylistNameData(e.target.value)
-  };
-
-  const createNewPlaylist = (newPlaylistNameData) => {
-
-    setAddingNewPlaylist(false);
-    console.log(newPlaylistNameData)
-  }
+  
 
 
   // JSX return 
 
   return (
     <>
-      <Login />
+
       <h1>Jammming</h1>
       <SearchBar 
         handleChangeSearchBar={handleChangeSearchBar} 
@@ -69,13 +55,9 @@ function App() {
           searchData={searchData}
           tracksArray={searchTracksArray}
         />
-        <PlaylistsContainer 
-          playlists={playlists} 
-          handleClickButtonCreatePlaylist={addNewPlaylistForm} 
-          addingNewPlaylist={addingNewPlaylist} 
-          handleChangeNewPlaylistNameData={handleChangeNewPlaylistNameData} 
-          handleClickButtonSubmitNewPlaylist={createNewPlaylist}
-          newPlaylistNameData={newPlaylistNameData}
+        <Playlist 
+          name="Playlist" 
+          playlistTracksArray={playlistTracksArray}
         />
       </div>
 

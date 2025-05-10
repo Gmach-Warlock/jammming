@@ -5,7 +5,8 @@ export default function Track(props) {
         <div className="track">
             <h3>{props.title}</h3>
             <span className="marker-text">Artist: </span><span>{props.artist}</span><br />
-            <span className="marker-text">Album: </span><span>{props.album}</span>sp
+            <span className="marker-text">Album: </span><span>{props.album}</span>
+            <i class="fa-solid fa-plus"></i>
         </div>
     );
 };
