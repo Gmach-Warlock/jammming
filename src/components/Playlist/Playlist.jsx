@@ -25,7 +25,7 @@ export default function Playlist(props) {
                     />
                 </li>)}
             </ul>
-            <button className="save-to-spotify">Save</button>
+            <button className="save-to-spotify" onClick={() => console.log(import.meta.env.REACT_APP_SPOTIFY_API_BASE_URL)}>Save</button>
         </div>
     );
 }
