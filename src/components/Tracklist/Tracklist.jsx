@@ -22,7 +22,10 @@ export default function Tracklist(props) {
                     <div className='align-content-center'>
                         <button 
                             className="add-track"
-                        ><i className="fa-solid fa-plus"></i>
+                        ><i 
+                            className="fa-solid fa-plus" 
+                            onClick={props.handleClickAddTrack}
+                        ></i>
                         </button>
                     </div>
 

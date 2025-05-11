@@ -23,7 +23,7 @@ function App() {
   }
 
   const handleClickSearchBar = () => {
-    setSearchTracksArray(tracksArray.filter((track) => track.title.includes(searchData) || track.artist.includes(searchData)))
+    setSearchTracksArray(tracksArray.filter((track) => track.title.includes(searchData) || track.artist.includes(searchData) || track.album.includes(searchData)))
     
 
     console.log(searchData)
@@ -47,11 +47,12 @@ function App() {
 
   const addTrack = (e) => {
     setPlaylistTracksArray((prev) => [...prev, {
-      title: e.target.title,
-      artist: e.target.artist,
-      album: e.target.album
+      title: "Dude",
+      artist: "Man",
+      album: "Car"
     }])
     console.log(playlistTracksArray)
+    console.log(e.target.name)
   }
 
   const renamePlaylist = () => {
@@ -83,6 +84,7 @@ function App() {
           isRenamingPlaylist={isRenamingPlaylist}
           handleChangePlaylistNameData={getPlaylistRenameData}
           handleClickSubmitRename={renamePlaylist}
+          handleClickAddTrack={addTrack}
         />
       </div>
 
