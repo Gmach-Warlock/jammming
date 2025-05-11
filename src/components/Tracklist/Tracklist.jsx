@@ -8,7 +8,7 @@ export default function Tracklist(props) {
             <ul>
                 {props.tracksArray.map((track) => <li 
                     key={`${track.title}${track.artist}`} 
-                    className='flex-container space-between'
+                    className='flex-container space-between trackCard'
                 >
                     <div>
                         <Track 

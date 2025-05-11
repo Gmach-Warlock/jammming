@@ -81,19 +81,27 @@ const getToken = async code => {
 }
 
 
-// implicit
+// working implicit
 
-var client_id = 'CLIENT_ID';
-var redirect_uri = 'http://127.0.0.1:8888/callback';
+async function getSpotifyToken() {
+  const clientId = ""; // Replace with your Client ID
+  const clientSecret = ""; // Replace with your Client Secret
 
-var state = generateRandomString(16);
+  const response = await fetch("https://accounts.spotify.com/api/token", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({
+      grant_type: "client_credentials",
+      client_id: clientId,
+      client_secret: clientSecret,
+    }),
+  });
 
-localStorage.setItem(stateKey, state);
-var scope = 'user-read-private user-read-email';
-
-var url = 'https://accounts.spotify.com/authorize';
-url += '?response_type=token';
-url += '&client_id=' + encodeURIComponent(client_id);
-url += '&scope=' + encodeURIComponent(scope);
-url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
-url += '&state=' + encodeURIComponent(state);
+  const data = await response.json();
+  console.log(data.access_token)
+  
+  return data.access_token; // Returns the access token
+  
+}

@@ -30,6 +30,20 @@ body {
   color: var(--color-200);
   font-size: var(--font-size-body);
   text-shadow: 0px 1.5px black;
+  background-image: radial-gradient(hsla(0, 0%, 100%, 0.5), 10%,hsla(240, 100%, 20%, 0.5));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 60%;
+  margin: 0;
+  padding: 0;  
+}
+
+
+h1 {
+    margin: 2rem;
+    font-size: 4rem;
+    font-family: var(--font-family-second);
+    text-shadow: 0px 3px black, 0px -2px hsl(59, 100%, 50%), 0px 2px hsl(59, 100%, 20%);
 }
 
 li {
@@ -49,6 +63,8 @@ li {
 
 .grid-container {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
 }
 
 .display-none {

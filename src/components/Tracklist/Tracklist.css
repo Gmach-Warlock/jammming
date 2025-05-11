@@ -1,3 +1,7 @@
 .tracklist li {
     background-color: var(--color-800);
 }
+
+.trackCard {
+    margin: .5rem;
+}

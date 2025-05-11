@@ -1,9 +1,13 @@
 import './App.css'
+
 import { useState } from 'react'
 import SearchBar from './components/SearchBar/SearchBar'
 import SearchResults from './components/SearchResults/SearchResults'
 import { tracksArray } from './tracksArray'
 import Playlist from './components/Playlist/Playlist'
+import styles from './App.module.css'
+
+
 
 
 // Main App
@@ -64,31 +68,34 @@ function App() {
   // JSX return 
 
   return (
-    <>
+    <div className={styles.app}>
+      <div className={styles.overlay}>
+  
+        <h1>Jammming</h1>
+        <SearchBar 
+          handleChangeSearchBar={handleChangeSearchBar} 
+          handleClickSearchBar={handleClickSearchBar}
+        />
+        <div className="grid-container"> 
+          <SearchResults 
+            searchData={searchData}
+            tracksArray={searchTracksArray} 
+            handleClickAddTrack={addTrack} 
+          />
+          <Playlist 
+            name={playlistName} 
+            tracksArray={playlistTracksArray}
+            handleClickRenamePlaylist={togglePlaylistForm} 
+            isRenamingPlaylist={isRenamingPlaylist}
+            handleChangePlaylistNameData={getPlaylistRenameData}
+            handleClickSubmitRename={renamePlaylist}
+            handleClickAddTrack={addTrack}
+          />
+        </div>
 
-      <h1>Jammming</h1>
-      <SearchBar 
-        handleChangeSearchBar={handleChangeSearchBar} 
-        handleClickSearchBar={handleClickSearchBar}
-      />
-      <div className="grid-container"> 
-        <SearchResults 
-          searchData={searchData}
-          tracksArray={searchTracksArray} 
-          handleClickAddTrack={addTrack} 
-        />
-        <Playlist 
-          name={playlistName} 
-          tracksArray={playlistTracksArray}
-          handleClickRenamePlaylist={togglePlaylistForm} 
-          isRenamingPlaylist={isRenamingPlaylist}
-          handleChangePlaylistNameData={getPlaylistRenameData}
-          handleClickSubmitRename={renamePlaylist}
-          handleClickAddTrack={addTrack}
-        />
       </div>
 
-    </>
+    </div>
   )
 }
 
