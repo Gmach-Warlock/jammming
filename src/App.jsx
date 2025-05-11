@@ -3,7 +3,7 @@ import { useState } from 'react'
 import SearchBar from './components/SearchBar/SearchBar'
 import SearchResults from './components/SearchResults/SearchResults'
 import { tracksArray } from './tracksArray'
-import Playlist from './Components/Playlist/Playlist'
+import Playlist from './components/Playlist/Playlist'
 
 
 // Main App
@@ -32,20 +32,33 @@ function App() {
 
   // Playlists state variables
 
-
+  const [isRenamingPlaylist, setIsRenamingPlaylist] = useState(false);
+  const [playlistName, setPlaylistName] = useState("Playlist")
+  const [playlistNameData, setPlaylistNameData] = useState('');
   const [playlistTracksArray, setPlaylistTracksArray] = useState([]);
 
   // Playlists functions 
 
-  const addTrack = () => {
+  const togglePlaylistForm = () => {
+    setIsRenamingPlaylist(true)
+  };
+
+  const getPlaylistRenameData = (e) => setPlaylistNameData(e.target.value)
+
+  const addTrack = (e) => {
     setPlaylistTracksArray((prev) => [...prev, {
-      title: 'Teste',
-      artist: 'Me',
-      album: 'You'
+      title: e.target.title,
+      artist: e.target.artist,
+      album: e.target.album
     }])
     console.log(playlistTracksArray)
   }
 
+  const renamePlaylist = () => {
+    console.log(playlistNameData)
+    setPlaylistName(playlistNameData);
+    setIsRenamingPlaylist(false)
+  }
 
   // JSX return 
 
@@ -64,8 +77,12 @@ function App() {
           handleClickAddTrack={addTrack} 
         />
         <Playlist 
-          name="Playlist" 
+          name={playlistName} 
           tracksArray={playlistTracksArray}
+          handleClickRenamePlaylist={togglePlaylistForm} 
+          isRenamingPlaylist={isRenamingPlaylist}
+          handleChangePlaylistNameData={getPlaylistRenameData}
+          handleClickSubmitRename={renamePlaylist}
         />
       </div>
 
