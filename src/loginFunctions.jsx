@@ -105,3 +105,26 @@ async function getSpotifyToken() {
   return data.access_token; // Returns the access token
   
 }
+
+
+  //this gets the data from the search word to make a tracklist
+  async function GetArtistData(input) {
+    try {
+      const accessToken = await getSpotifyToken(); // Get token first
+
+      const response = await fetch(
+        `https://api.spotify.com/v1/search?q=${input}&type=track&include_external=audio`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      const data = await response.json();
+      setTracks(data);
+    } catch (error) {
+      console.error("Error fetching artist data:", error);
+    }
+  }

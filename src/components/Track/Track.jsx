@@ -1,14 +1,14 @@
 import './Track.css'
 
-export default function Track(props) {
+export default function Track({ artist, title, album}) {
     return (
         <div className="track">
             
             <div className="flex-container space-between">
                 <div className="track-info">
-                    <h3>{props.artist}</h3>
-                    <h3>{props.title}</h3>
-                    <h3>{props.album}</h3>
+                    <h3>{artist}</h3>
+                    <h3>{title}</h3>
+                    <h3>{album}</h3>
                 </div>
             </div>
             
